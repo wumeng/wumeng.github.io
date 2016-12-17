@@ -11,8 +11,12 @@
 
 
 
+  <meta name="description" content="OpenResty解析域名实现动态获取IP访问Redis"/>
 
 
+
+
+  <meta name="keywords" content="OpenResty nginx-lua-module resty.dns.resolver 域名解析," />
 
 
 
@@ -26,7 +30,7 @@
 
 
 
-<link rel="canonical" href="http://wumeng.info/"/>
+<link rel="canonical" href="http://wumeng.info/2016/12/17/openresty-dns-resolver/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.0" />
@@ -37,7 +41,7 @@
 
 
 
-    <title> blog.wumeng </title>
+    <title> OpenResty解析域名实现动态获取IP访问Redis · blog.wumeng </title>
   </head>
 
   <body>
@@ -101,14 +105,12 @@
         <div class="content-wrapper">
           <div id="content" class="content">
             
-  <section id="posts" class="posts">
-    
-      
+  
   <article class="post">
     <header class="post-header">
       <h1 class="post-title">
         
-          <a class="post-link" href="/2016/12/17/openresty-dns-resolver/">OpenResty解析域名实现动态获取IP访问Redis</a>
+          OpenResty解析域名实现动态获取IP访问Redis
         
       </h1>
 
@@ -123,10 +125,7 @@
 
     <div class="post-content">
       
-        
-
-        
-          <p>OpenResty中访问Redis中提供的LuaRestyRedisLibrary是通过<strong>IP+Port</strong>连接Redis的，一般访问一个有授权验证的Redis的方法如下：</p>
+        <p>OpenResty中访问Redis中提供的LuaRestyRedisLibrary是通过<strong>IP+Port</strong>连接Redis的，一般访问一个有授权验证的Redis的方法如下：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- connection redis </span></div><div class="line">         <span class="keyword">local</span> redis = <span class="built_in">require</span> <span class="string">"resty.redis"</span></div><div class="line">         <span class="keyword">local</span> red = redis:new()</div><div class="line"></div><div class="line">         red:set_timeout(<span class="number">1000</span>) <span class="comment">-- 1 sec</span></div><div class="line"></div><div class="line">         <span class="keyword">local</span> ok, err = red:connect(<span class="string">"127.0.0.1"</span>, <span class="number">6379</span>)</div><div class="line">         <span class="keyword">if</span> <span class="keyword">not</span> ok <span class="keyword">then</span></div><div class="line">             ngx.say(<span class="string">"failed to connect: "</span>, err)</div><div class="line">             <span class="keyword">return</span></div><div class="line">         <span class="keyword">end</span></div><div class="line">         </div><div class="line">         ok, err = red:auth(<span class="string">"password"</span>)</div><div class="line">         <span class="keyword">if</span> <span class="keyword">not</span> ok <span class="keyword">then</span></div><div class="line">             ngx.say(<span class="string">"failed to auth: "</span>, err)</div><div class="line">             <span class="keyword">return</span></div><div class="line">         <span class="keyword">end</span></div></pre></td></tr></table></figure>
 <p>如果我们想通过域名连接Redis该怎么做呢？我们曲线救国，解析域名获取ip地址，然后再进行连接。</p>
 <p>第一步我们要先获取DNS服务器地址。*NIX系统的DNS的服务器的配置地址在/etc/resolv.conf文件下, 我们之间读取这个文件，然后解析结果获取DNS地址：</p>
@@ -139,60 +138,40 @@
 <p>另外在连接Redis时，我们还可以把连接失败的IP地址剔除，重新放缓存。保证我们连接Redis时取到的IP地址是高可用的，具体代码就不再列出了；</p>
 <p>以上我们就通过解析域名得到IP地址，实现了动态的获取Redis的连接IP地址了；</p>
 
-        
       
     </div>
 
     
-  </article>
-
-    
-      
-  <article class="post">
-    <header class="post-header">
-      <h1 class="post-title">
-        
-          <a class="post-link" href="/2016/12/14/hello-world/">重新恢复blog</a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <span class="post-time">
-          Dec 14, 2016
-        </span>
-      </div>
-    </header>
-
-    
-
-    <div class="post-content">
-      
-        
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/OpenResty-nginx-lua-module-resty-dns-resolver-域名解析/">OpenResty nginx-lua-module resty.dns.resolver 域名解析</a>
+          
+        </div>
 
         
-          <p>从11年开始维护博客，断断续续写了好几年，当时使用德国服务商kilu的免费空间，WordPress的搭建的。15年kilu免费转收费，一直未看见最初注册邮箱的提醒邮件，所有的内容就这样没有了。也怪自己不去打理，什么都找不回了，心痛呀～ </p>
-<p>年初使用阿里云准备重新建起博客，先买了一年服务，但是无奈限制太多，而且域名需要强制备案。不想受太多约束，罢了，我不用行了吧。现在使用<strong>GitPage + Hexo</strong>，<strong>MarkDwon</strong>简直是神器，了解了一下基础的语法，在博客里无论是写文字还是代码，都非常简单方便。对比之前的WordPress，简直好用到哭～</p>
-<p>blog是很私人的空间，特别对于内向性的人。以前写的除了一些技术小总结，大部分就是自己的各种小情绪，现在都找不回了。找不回的不仅是那些文字，也是找不回的青春。哎，重新开始吧～</p>
-
-        
-      
-    </div>
-
+  <nav class="post-nav">
     
-  </article>
-
     
-  </section>
-
-  
-  <nav class="pagination">
-    
+      <a class="next" href="/2016/12/14/hello-world/">
+        <span class="next-text nav-default">重新恢复blog</span>
+        <span class="prev-text nav-mobile">下一篇</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
+
+      </footer>
+    
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
         </div>  
       </main>
 
