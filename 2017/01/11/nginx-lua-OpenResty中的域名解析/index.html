@@ -57,14 +57,14 @@
         
         <li class="menu-item">
           <a class="menu-item-link" href="/">
-            首页
+            Home
           </a>
         </li>
       
         
         <li class="menu-item">
           <a class="menu-item-link" href="/archives/">
-            归档
+            Archives
           </a>
         </li>
       
@@ -89,12 +89,12 @@
     
       
       <a class="mobile-menu-item" href="/">
-        首页
+        Home
       </a>
     
       
       <a class="mobile-menu-item" href="/archives/">
-        归档
+        Archives
       </a>
     
   </nav>
@@ -129,6 +129,7 @@
 <p>easyresolvers是基于resty.dns.resolver和resty.lrucache两个OpenResty的默认模块实现的，屏蔽了读取DNS server等操作，使用起来比dns.resolver更简单、方便一些。</p>
 <p>使用如下：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">-- require easyresolver module</span></div><div class="line"><span class="keyword">local</span> easyresolver = <span class="built_in">require</span> <span class="string">"resty.reasyresolver"</span></div><div class="line"></div><div class="line"><span class="comment">-- resolver domain and return ip list table</span></div><div class="line"><span class="keyword">local</span> ip_list = easyresolver.getDomainIpList(<span class="string">"www.google.com"</span>)</div></pre></td></tr></table></figure>
+<p>返回的ip_list是一个table，如果域名无法解析或解析失败返回nil，并会有错误日志打印。</p>
 
       
     </div>
@@ -147,7 +148,7 @@
     
       <a class="next" href="/2016/12/17/openresty-dns-resolver/">
         <span class="next-text nav-default">OpenResty解析域名实现动态获取IP访问Redis</span>
-        <span class="prev-text nav-mobile">下一篇</span>
+        <span class="prev-text nav-mobile">Next</span>
         <i class="iconfont icon-right"></i>
       </a>
     
@@ -195,11 +196,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
+    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
   </span>
   
   <span class="theme-info">
-    主题 - 
+    Theme - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
