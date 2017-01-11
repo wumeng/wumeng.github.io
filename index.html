@@ -53,14 +53,14 @@
         
         <li class="menu-item">
           <a class="menu-item-link" href="/">
-            Home
+            首页
           </a>
         </li>
       
         
         <li class="menu-item">
           <a class="menu-item-link" href="/archives/">
-            Archives
+            归档
           </a>
         </li>
       
@@ -85,12 +85,12 @@
     
       
       <a class="mobile-menu-item" href="/">
-        Home
+        首页
       </a>
     
       
       <a class="mobile-menu-item" href="/archives/">
-        Archives
+        归档
       </a>
     
   </nav>
@@ -167,7 +167,7 @@
           <p>OpenResty中访问Redis中提供的LuaRestyRedisLibrary是通过<strong>IP+Port</strong>连接Redis的，一般访问一个有授权验证的Redis的方法如下：</p>
 <figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">-- connection redis </span></div><div class="line">         <span class="keyword">local</span> redis = <span class="built_in">require</span> <span class="string">"resty.redis"</span></div><div class="line">         <span class="keyword">local</span> red = redis:new()</div><div class="line"></div><div class="line">         red:set_timeout(<span class="number">1000</span>) <span class="comment">-- 1 sec</span></div><div class="line"></div><div class="line">         <span class="keyword">local</span> ok, err = red:connect(<span class="string">"127.0.0.1"</span>, <span class="number">6379</span>)</div><div class="line">         <span class="keyword">if</span> <span class="keyword">not</span> ok <span class="keyword">then</span></div><div class="line">             ngx.say(<span class="string">"failed to connect: "</span>, err)</div><div class="line">             <span class="keyword">return</span></div><div class="line">         <span class="keyword">end</span></div><div class="line">         </div><div class="line">         ok, err = red:auth(<span class="string">"password"</span>)</div><div class="line">         <span class="keyword">if</span> <span class="keyword">not</span> ok <span class="keyword">then</span></div><div class="line">             ngx.say(<span class="string">"failed to auth: "</span>, err)</div><div class="line">             <span class="keyword">return</span></div><div class="line">         <span class="keyword">end</span></div></pre></td></tr></table></figure>
           <div class="read-more">
-            <a href="/2016/12/17/openresty-dns-resolver/" class="read-more-link">Read more..</a>
+            <a href="/2016/12/17/openresty-dns-resolver/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -204,7 +204,7 @@
         
           <p>从11年开始维护博客，断断续续写了好几年，当时使用德国服务商kilu的免费空间，WordPress的搭建的。15年kilu免费转收费，一直未看见最初注册邮箱的提醒邮件，所有的内容就这样没有了。也怪自己不去打理，什么都找不回了，心痛呀～ </p>
           <div class="read-more">
-            <a href="/2016/12/14/hello-world/" class="read-more-link">Read more..</a>
+            <a href="/2016/12/14/hello-world/" class="read-more-link">阅读更多</a>
           </div>
         
       
@@ -256,11 +256,11 @@
 
 <div class="copyright">
   <span class="power-by">
-    Powered by <a class="hexo-link" href="https://hexo.io/">Hexo</a>
+    由 <a class="hexo-link" href="https://hexo.io/">Hexo</a> 强力驱动
   </span>
   
   <span class="theme-info">
-    Theme - 
+    主题 - 
     <a class="theme-link" href="https://github.com/ahonn/hexo-theme-even">Even</a>
   </span>
 
