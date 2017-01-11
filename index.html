@@ -108,6 +108,42 @@
     <header class="post-header">
       <h1 class="post-title">
         
+          <a class="post-link" href="/2017/01/11/nginx-lua-OpenResty中的域名解析/">nginx_lua/OpenResty中的域名解析</a>
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jan 11, 2017
+        </span>
+      </div>
+    </header>
+
+    
+
+    <div class="post-content">
+      
+        
+
+        
+          <p>今天花了点时间封装了一个OpenResty中很方便的解析域名的工具<strong>easyresolver</strong>,github地址：<a href="https://github.com/wumeng/easyresolver" target="_blank" rel="external">https://github.com/wumeng/easyresolver</a>,可以分方便的解析出域名的ip地址。域名解析的结果默认缓存10分钟，缓存使用LRUCache。支持类unix的系统，如：linux 、mac OS等。</p>
+<p>easyresolvers是基于resty.dns.resolver和resty.lrucache两个OpenResty的默认模块实现的，屏蔽了读取DNS server等操作，使用起来比dns.resolver更简单、方便一些。</p>
+<p>使用如下：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">-- require easyresolver module</span></div><div class="line"><span class="keyword">local</span> easyresolver = <span class="built_in">require</span> <span class="string">"resty.reasyresolver"</span></div><div class="line"></div><div class="line"><span class="comment">-- resolver domain and return ip list table</span></div><div class="line"><span class="keyword">local</span> ip_list = easyresolver.getDomainIpList(<span class="string">"www.google.com"</span>)</div></pre></td></tr></table></figure>
+
+        
+      
+    </div>
+
+    
+  </article>
+
+    
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
           <a class="post-link" href="/2016/12/17/openresty-dns-resolver/">OpenResty解析域名实现动态获取IP访问Redis</a>
         
       </h1>
@@ -234,7 +270,7 @@
      
       2015 - 
     
-    2016
+    2017
 
     <span class="heart">
       <i class="iconfont icon-heart"></i>

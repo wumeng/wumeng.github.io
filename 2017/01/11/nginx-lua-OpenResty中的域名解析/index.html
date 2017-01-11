@@ -11,8 +11,12 @@
 
 
 
+  <meta name="description" content="nginx_lua/OpenResty中的域名解析"/>
 
 
+
+
+  <meta name="keywords" content="ngx_lua resolver DNS OpenResty 域名解析," />
 
 
 
@@ -26,7 +30,7 @@
 
 
 
-<link rel="canonical" href="http://wumeng.info/archives/2016/12/"/>
+<link rel="canonical" href="http://wumeng.info/2017/01/11/nginx-lua-OpenResty中的域名解析/"/>
 
 
 <link rel="stylesheet" type="text/css" href="/css/style.css?v=2.0.0" />
@@ -37,11 +41,7 @@
 
 
 
-    <title>
-  
-    Archives · blog.wumeng
-  
-</title>
+    <title> nginx_lua/OpenResty中的域名解析 · blog.wumeng </title>
   </head>
 
   <body>
@@ -106,76 +106,64 @@
           <div id="content" class="content">
             
   
-  <section id="archive" class="archive">
+  <article class="post">
+    <header class="post-header">
+      <h1 class="post-title">
+        
+          nginx_lua/OpenResty中的域名解析
+        
+      </h1>
+
+      <div class="post-meta">
+        <span class="post-time">
+          Jan 11, 2017
+        </span>
+      </div>
+    </header>
+
     
+
+    <div class="post-content">
       
-        <div class="archive-title">
-          <h2 class="archive-name"> All </h2>
-          <span class="archive-post-counter">
-            3 Posts In Total
-          </span>
+        <p>今天花了点时间封装了一个OpenResty中很方便的解析域名的工具<strong>easyresolver</strong>,github地址：<a href="https://github.com/wumeng/easyresolver" target="_blank" rel="external">https://github.com/wumeng/easyresolver</a>,可以分方便的解析出域名的ip地址。域名解析的结果默认缓存10分钟，缓存使用LRUCache。支持类unix的系统，如：linux 、mac OS等。</p>
+<p>easyresolvers是基于resty.dns.resolver和resty.lrucache两个OpenResty的默认模块实现的，屏蔽了读取DNS server等操作，使用起来比dns.resolver更简单、方便一些。</p>
+<p>使用如下：</p>
+<figure class="highlight lua"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">-- require easyresolver module</span></div><div class="line"><span class="keyword">local</span> easyresolver = <span class="built_in">require</span> <span class="string">"resty.reasyresolver"</span></div><div class="line"></div><div class="line"><span class="comment">-- resolver domain and return ip list table</span></div><div class="line"><span class="keyword">local</span> ip_list = easyresolver.getDomainIpList(<span class="string">"www.google.com"</span>)</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+      <footer class="post-footer">
+        <div class="post-tags">
+          
+            <a href="/tags/ngx-lua-resolver-DNS-OpenResty-域名解析/">ngx_lua resolver DNS OpenResty 域名解析</a>
+          
         </div>
-      
-    
-
-    
-      
-        
-        
 
         
-          
-          <div class="collection-title">
-            <h2 class="archive-year">2016</h2>
-          </div>
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            12-17
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2016/12/17/openresty-dns-resolver/" class="archive-post-link">
-            OpenResty解析域名实现动态获取IP访问Redis
-          </a>
-        </span>
-      </div>
+  <nav class="post-nav">
     
-      
-        
-        
-
-        
-      
-      
-      <div class="archive-post">
-        <span class="archive-post-time">
-          
-            12-14
-          
-        </span>
-        <span class="archive-post-title">
-          <a href="/2016/12/14/hello-world/" class="archive-post-link">
-            重新恢复blog
-          </a>
-        </span>
-      </div>
     
-  </section>
-
-  
-  <nav class="pagination">
-    
+      <a class="next" href="/2016/12/17/openresty-dns-resolver/">
+        <span class="next-text nav-default">OpenResty解析域名实现动态获取IP访问Redis</span>
+        <span class="prev-text nav-mobile">Next</span>
+        <i class="iconfont icon-right"></i>
+      </a>
     
   </nav>
 
+      </footer>
+    
+  </article>
 
 
           </div>
           
+  <div class="comments" id="comments">
+    
+  </div>
+
         </div>  
       </main>
 
